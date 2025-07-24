@@ -1,0 +1,72 @@
+import React, { useState } from "react";
+
+export default function Login() {
+    const[login, setLogin]=useState("login");
+
+    function handleChange(){
+       (login=="login"?setLogin("register"):setLogin("login"))
+    }
+
+
+function Log(){
+    return(
+        <>
+         <h3>Login:</h3>
+      <form>
+        <label>
+          Name:
+          <input name="name" type="text" />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input name="password" type="password" />
+        </label>
+        <br />
+        <button type="submit" >Submit</button>
+      </form>
+        </>
+    )
+}
+
+function Register(){
+
+    return(
+    <>
+     <h3>Register:</h3>
+      <form>
+        <label>
+          Name:
+          <input name="name" type="text" />
+        </label>
+        <br />
+         <label>
+          Email:
+          <input name="email" type="text" />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input name="password" type="password" />
+        </label>
+        <br />
+        <button type="submit" >Submit</button>
+      </form>
+    </>
+
+    )
+    
+}
+  return (
+    <>
+
+      <h1>Welcome to our app</h1>
+      {login === "login" ? <Log /> : <Register />}
+
+      <button onClick={handleChange}>
+        {login === "login" ? "Don't have an account? Register" : "Already have an account? Login"}
+      </button>
+    
+    </>
+  );
+}
