@@ -4,9 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"node backend/index.js\"",
+    "dev": "concurrently -k \"vite\" \"node backend/index.js\"",
     "backend": "node backend/index.js",
-    "start": "npm run dev",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
