@@ -5,7 +5,8 @@ StackBlitz app- https://stackblitz.com/~/github.com/SaahilFernandes/Test-app?fil
 
 Remember after loading the file update the port in the link from 5000 to 5173 to access website:
 
-<img width="442" height="82" alt="image" src="https://github.com/user-attachments/assets/86d9ed6a-39c1-4362-a4a8-ba45f4d47387" />
+<img width="496" height="147" alt="image" src="https://github.com/user-attachments/assets/06efa237-013e-4bbb-9035-302616fab829" />
+
 
 to
 
