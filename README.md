@@ -7,6 +7,11 @@ Remember after loading the file update the port in the link from 5000 to 5173 to
 
 <img width="442" height="82" alt="image" src="https://github.com/user-attachments/assets/86d9ed6a-39c1-4362-a4a8-ba45f4d47387" />
 
+to
+
+<img width="485" height="260" alt="image" src="https://github.com/user-attachments/assets/cdb9d2b6-819c-4836-9554-b40b63feeab0" />
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
