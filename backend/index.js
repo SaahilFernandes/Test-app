@@ -13,6 +13,11 @@ app.use(express.json());
 app.use('/feedback', feedbackRoutes);
 app.use('/auth', authRoutes);
 
+app.get('/', async (req, res) => {
+  res.send("replace 5000 in url with 5173");
+ });
+ 
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });

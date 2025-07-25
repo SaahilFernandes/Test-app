@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -k \"vite --host\" \"npm run delay-backend\"",
-    "delay-backend": "wait-on http://localhost:5173 && node backend/index.js",
+    "dev": "concurrently \"npm run backend\" \"vite --host\"",
     "backend": "node backend/index.js",
     "build": "vite build",
     "lint": "eslint .",
