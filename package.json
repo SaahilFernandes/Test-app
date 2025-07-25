@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -k \"vite\" \"node backend/index.js\"",
+    "dev": "concurrently -k \"vite --host\" \"node backend/index.js\"",
     "backend": "node backend/index.js",
     "build": "vite build",
     "lint": "eslint .",
