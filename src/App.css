@@ -1,42 +1,614 @@
-#root {
-  max-width: 1280px;
+/* Modern Feedback Tracker CSS - Toned Down & Optimized */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  /* Slightly softer background gradient */
+  background: linear-gradient(135deg, #a7b7ec 0%, #a481c5 100%);
+  min-height: 100vh;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.app-header {
+  width: 95vw; /* Full viewport width */
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #2d3748;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box; /* Include padding in width */
+  border-radius: 20px; /* Remove rounded corners if spanning full width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  flex-wrap: wrap;
+  margin: 0; /* Remove margin that might limit width */
+  position: relative;
+  z-index: 10;
+}
+
+
+.app-header:hover {
+  transform: translateY(-2px);
+  /* Slightly more pronounced shadow on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-header nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app-header nav a {
+  color: #4a5568;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove ::before on Nav Links, relying on :hover and .active-link directly */
+.app-header nav a::before {
+  content: none; 
+}
+
+.app-header nav a:hover {
+  color: white; /* Text color on hover */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Solid fill on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.app-header nav .active-link {
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-1px); /* Keep subtle lift */
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+
+.app-header nav span {
+  font-weight: 600;
+  margin-right: 1rem;
+  color: #2d3748;
+}
+
+.logout-button {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(255, 107, 107, 0.2);
+}
+
+.logout-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Main Content */
+.app-main {
+  margin-top: 2rem;
+  width: 93vw;
+}
+
+.page-container {
+  /* Replaced backdrop-filter with transparent background for performance */
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 2.5rem;
+  border-radius: 24px;
+  /* Simpler, softer shadow */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: #2d3748;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* Feedback Form Section */
+.feedback-form-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  /* Soft solid background */
+  background: #fdfefe; 
+  border-radius: 20px;
+  border: 1px solid #e9edf3; /* Lighter border */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Softer shadow */
+}
+
+.feedback-form-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.feedback-form-section h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.feedback-form-section label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #4a5568;
 }
 
-@keyframes logo-spin {
+.feedback-form-section textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccd6e0; /* Softer border */
+  border-radius: 12px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  background: white;
+}
+
+.feedback-form-section textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.feedback-form-section button {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(72, 187, 120, 0.2);
+  display: block;
+  margin: 0 auto;
+}
+
+.feedback-form-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+}
+
+/* Status Messages */
+.status-message {
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e0ffe9 0%, #d4f7dc 100%); /* Lighter success gradient */
+  color: #22543d;
+  border: 1px solid #a8dbb4; /* Lighter border */
+  text-align: center;
+  font-weight: 500;
+  animation: slideInFromTop 0.3s ease;
+}
+
+.status-message.error {
+  background: linear-gradient(135deg, #ffe0e0 0%, #f7d4d4 100%); /* Lighter error gradient */
+  color: #742a2a;
+  border-color: #dbb3b3; /* Lighter border */
+}
+
+@keyframes slideInFromTop {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Guest Notice */
+.guest-notice {
+  background: linear-gradient(135deg, #e3f2fd 0%, #c1e3fa 100%); /* Lighter info gradient */
+  border: 1px solid #9fdbf5; /* Lighter border */
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 500;
+  color: #2c5282;
+}
+
+.guest-notice a {
+  color: #2b6cb0;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.guest-notice a:hover {
+  color: #2c5282;
+  text-decoration: underline;
+}
+
+/* Feedback List */
+.feedback-list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin-top: 2rem;
+}
+
+.feedback-list h3 {
+  grid-column: 1 / -1;
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Feedback Cards */
+.feedback-card {
+  /* Softer solid white background */
+  background: #ffffff; 
+  border: 1px solid #eff3f7; /* Very light border */
+  border-radius: 20px;
+  padding: 2rem;
+  /* Lighter, softer shadow */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* More noticeable shadow on hover */
+}
+
+.feedback-card p {
+  margin: 0.75rem 0;
+  color: #4a5568;
+  line-height: 1.7;
+  word-wrap: break-word;
+}
+
+.feedback-card p strong {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+/* Vote Styling */
+.votes {
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.votes.positive {
+  color: #2d3748; /* Darker text for readability on lighter background */
+  background: linear-gradient(135deg, #e3fadc 0%, #cef0db 100%); /* Softer gradient */
+}
+
+.votes.negative {
+  color: #2d3748; /* Darker text */
+  background: linear-gradient(135deg, #ffe7e7 0%, #fbd5d5 100%); /* Softer gradient */
+}
+
+.votes.neutral {
+  color: #4a5568;
+  background: linear-gradient(135deg, #f4f7fa 0%, #edf1f5 100%); /* Very subtle neutral */
+}
+
+/* Feedback Actions */
+.feedback-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.feedback-actions button {
+  padding: 0.9rem 1.6rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feedback-actions button:first-child { /* Upvote */
+  background: linear-gradient(135deg, #6699ed 0%, #4a82dc 100%); /* Slightly muted blue */
+  color: white;
+  box-shadow: 0 2px 10px rgba(66, 153, 225, 0.2);
+}
+
+.feedback-actions button:first-child:hover:not(.disabled-action) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
+}
+
+.feedback-actions button:nth-child(2) { /* Downvote */
+  background: linear-gradient(135deg, #f0b679 0%, #eb9d49 100%); /* Slightly muted orange */
+  color: white;
+  box-shadow: 0 2px 10px rgba(237, 137, 54, 0.2);
+}
+
+.feedback-actions button:nth-child(2):hover:not(.disabled-action) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(237, 137, 54, 0.3);
+}
+
+.feedback-actions .delete-button {
+  background: linear-gradient(135deg, #f57f7f 0%, #eb6666 100%); /* Slightly muted red */
+  color: white;
+  box-shadow: 0 2px 10px rgba(245, 101, 101, 0.2);
+}
+
+.feedback-actions .delete-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(245, 101, 101, 0.3);
+}
+
+.disabled-action {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  background: #f1f5f9 !important; /* Lighter disabled state */
+  color: #a0aec0 !important;
+  box-shadow: none !important;
+}
+
+.disabled-action:hover {
+  transform: none !important;
+}
+
+/* Login/Register Form Wrapper Styles */
+.auth-container {
+  padding: 2.5rem;
+  max-width: 450px;
+  margin: 0 auto;
+  /* Replaced backdrop-filter with transparent background for performance */
+  background: rgba(255, 255, 255, 0.98); 
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  /* Simpler, softer shadow */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07); 
+  transition: all 0.3s ease;
+  animation: slideInFromTop 0.5s ease-out; /* Uses the more specific keyframe */
+}
+
+.auth-container:hover {
+  transform: translateY(-3px); /* Slightly less aggressive lift */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.auth-container h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+  text-align: center;
+  font-weight: 600;
+}
+
+.auth-container form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.auth-container form input[type="text"],
+.auth-container form input[type="email"],
+.auth-container form input[type="password"] {
+  width: 100%;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #cbd5e0; /* Softer border */
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f8fafc; /* Very light background for inputs */
+  font-family: inherit;
+}
+
+.auth-container form input[type="text"]:focus,
+.auth-container form input[type="email"]:focus,
+.auth-container form input[type="password"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15); /* Softer focus highlight */
+  transform: translateY(-1px);
+}
+
+.auth-container form button[type="submit"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); /* Softer button shadow */
+  width: 100%;
+}
+
+.auth-container form button[type="submit"]:hover {
+  transform: translateY(-2px); /* Less aggressive lift */
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.auth-container > button { /* Styles for the toggle login/register button */
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f1f5f9; /* Muted background for toggle button */
+  color: #4a5568;
+  border: 1px solid #d4dae0; /* Slightly more defined border */
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.auth-container > button:hover {
+  background: #e2e8f0;
+  border-color: #a0aec0;
+  transform: translateY(-1px);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+  
+  .app-header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .page-container {
+    padding: 1.5rem;
+  }
+  
+  .feedback-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .feedback-actions {
+    flex-direction: column;
+  }
+  
+  .feedback-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
   }
 }
 
-.card {
-  padding: 2em;
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .feedback-card {
+    padding: 1.5rem;
+  }
+  
+  .feedback-form-section {
+    padding: 1.5rem;
+  }
+
+  .auth-container {
+    padding: 1.5rem;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation for better UX (optional - can be applied to elements during fetch) */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
